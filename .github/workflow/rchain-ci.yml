@@ -1,8 +1,9 @@
 name: help-command
 on:
-  repository_dispatch:
+  push:
     [master]
   pull_request:
+    [master]
 jobs:
   help:
     runs-on: ubuntu-latest
