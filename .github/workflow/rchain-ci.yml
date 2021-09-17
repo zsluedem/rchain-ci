@@ -1,0 +1,16 @@
+name: help-command
+on:
+  repository_dispatch:
+  pull_request:
+jobs:
+  help:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull from repo
+        uses: actions/checkout@v2
+        with:
+          repository: rchain/rchain
+      - name: Compile
+        run: |
+          export SBT_OPTS="$SBT_OPTS -Dsbt.task.timings=true -Xmx2500m -Xss2m"
+          sbt update compile
