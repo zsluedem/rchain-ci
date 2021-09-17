@@ -1,8 +1,9 @@
 name: help-command
 on:
-  repository_dispatch:
+  push:
     [master]
   pull_request:
+    [master]
 jobs:
   help:
     runs-on: ubuntu-latest
@@ -15,3 +16,4 @@ jobs:
         run: |
           export SBT_OPTS="$SBT_OPTS -Dsbt.task.timings=true -Xmx2500m -Xss2m"
           sbt update compile
+
